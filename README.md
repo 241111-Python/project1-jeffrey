@@ -1,2 +1,2 @@
 # Rock, Paper, Scissors
-Run GameScript.sh and have fun!
+Run GameScript.sh with bash and have fun!
