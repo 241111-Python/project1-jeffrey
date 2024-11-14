@@ -1,1 +1,2 @@
-# revature-week1-project
+# Rock, Paper, Scissors
+Run GameScript.sh and have fun!
