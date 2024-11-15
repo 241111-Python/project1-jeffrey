@@ -2,6 +2,7 @@
 
 updateData() {
   echo "$name = $myScore" >> $1
+  echo "Opponent = $oppScore" >> $1
   echo $(date) >> $1
   echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" >> $1
 }
@@ -16,7 +17,7 @@ updateScoreboard() {
 
       if [[ -v players["$playerName"] ]]; then
         players["$playerName"]=$(( players["$playerName"] + $playerScore ))
-      else
+      elif [[ $playerName != "Opponent" ]]; then
         players["$playerName"]=$playerScore
       fi
     fi
@@ -40,7 +41,7 @@ updateScoreboardCrontab() {
 
       if [[ -v players["$playerName"] ]]; then
         players["$playerName"]=$(( players["$playerName"] + $playerScore ))
-      else
+      elif [[ $playerName != "Opponent" ]]; then
         players["$playerName"]=$playerScore
       fi
     fi
@@ -54,6 +55,6 @@ updateScoreboardCrontab() {
   echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" >> "$2"
 }
 
-if [ "$1" == "/mnt/d/Visual Studio Codes/Revature/Week 1/Project/Data.md" ]; then
+if [ "${1:0:5}" == "/mnt/" ]; then
   updateScoreboardCrontab "/mnt/d/Visual Studio Codes/Revature/Week 1/Project/Data.md" "/mnt/d/Visual Studio Codes/Revature/Week 1/Project/Scoreboard.txt"
 fi

@@ -69,8 +69,8 @@ while [[ ! -v choice || $choice != "end" ]]; do
 	echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 done
 
-FILE="Data.md"
-FILE2="Scoreboard.txt"
+FILE="./Data.md"
+FILE2="./Scoreboard.txt"
 updateData $FILE
 updateScoreboard $FILE $FILE2
 
